@@ -1,0 +1,31 @@
+.first {
+  /* background: #b139d5;
+  background: linear-gradient(
+    303deg,
+    rgba(177, 57, 213, 1) 0%,
+    rgba(20, 54, 195, 1) 100%
+  ); */
+  background: #1b1b1d;
+  height: 100vh;
+}
+
+html {
+  scroll-snap-type: y mandatory;
+}
+
+.img-container {
+  height: 100vh;
+  scroll-snap-align: start;
+  position: relative;
+  width: 100%;
+}
+
+.progress {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: #8df0cc;
+  bottom: 50px;
+  transform: scaleX(0);
+}
