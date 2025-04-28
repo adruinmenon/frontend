@@ -3,15 +3,21 @@ import { Navbar } from "../components/Navbar";
 import "./welcome.css";
 import { ChatBox } from "./Chatbox";
 import {
+  AnimatePresence,
   motion,
   MotionValue,
+  useAnimate,
+  useMotionValueEvent,
   useScroll,
   useSpring,
   useTransform,
 } from "motion/react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import React from "react";
 import { Verify } from "./Verify";
+import { FeatureCard } from "../components/Cards";
+import FeedbackSlide from "./FeedbackSlide";
+import { Counter } from "../components/Counter";
 export function HeroSection() {
   return (
     <main className="pt-16 first h-screen w-full">
@@ -52,15 +58,27 @@ export function ServerModeration() {
         {[
           {
             title: "Server Moderation",
-            description: <div>3000+ Servers</div>,
+            description: (
+              <div className="flex items-center justify-center">
+                <Counter countTo={3000}></Counter>+ Servers
+              </div>
+            ),
           },
           {
             title: "Raid Protection",
-            description: <div>1000+ Servers</div>,
+            description: (
+              <div className="flex items-center justify-center">
+                <Counter countTo={1000}></Counter>+ Servers
+              </div>
+            ),
           },
           {
             title: "Nuke Protection",
-            description: <div>1000+ Servers</div>,
+            description: (
+              <div className="flex items-center justify-center">
+                <Counter countTo={1000}></Counter>+ Servers
+              </div>
+            ),
           },
         ].map((item) => (
           <div key={item.title} className="mx-4 my-6">
@@ -78,18 +96,40 @@ export function AutoModeration() {
     <div className="grid grid-cols-2 pt-14 pb-4 bg-[#1b1b1d] h-screen">
       <div className="flex items-center justify-center">
         <div className="w-1/2">
-          <h3 className="text-5xl font-bold">Auto Mod</h3>
-          <h2>
+          <motion.h3
+            className="text-5xl font-bold my-4"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 3 }}
+          >
+            Auto Mod
+          </motion.h3>
+          <motion.h2
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 3 }}
+            className="my-4"
+          >
             Wick has a very unique auto mod that is based on a heat concept. The
             more filters you trigger, the quicker Wick is to silence you.
-          </h2>
+          </motion.h2>
           <div>
-            <div className="flex items-center justify-center mt-2 bg-blue-400 rounded-full p-0.5 w-fit px-5">
+            <motion.div
+              className="flex items-center justify-center mt-2 bg-blue-400 rounded-full p-0.5 w-fit px-5"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 3 }}
+            >
               Advanced Anti Spam
-            </div>
-            <div className="flex items-center justify-center mt-2 bg-blue-400 rounded-full p-0.5 w-fit px-5">
+            </motion.div>
+            <motion.div
+              className="flex items-center justify-center mt-2 bg-blue-400 rounded-full p-0.5 w-fit px-5"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 3 }}
+            >
               Advanced Anti Raid
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -109,27 +149,53 @@ export function NukeProtection() {
           alt="Raid Protection"
         />
       </div>
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center overflow-x-hidden">
         <div>
-          <h3 className="text-5xl font-bold">Anti Nuke</h3>
-          <h2>
+          <motion.h3
+            className="text-5xl font-bold my-4"
+            initial={{ x: 100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 3 }}
+          >
+            Anti Nuke
+          </motion.h3>
+          <motion.h2
+            initial={{ x: 200, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 3 }}
+            className="my-4"
+          >
             Wick brought the concept of "Anti Nuke" to Discord years ago, and
             the system has been perfected ever since. Wick will monitor the
             activity of your staff members and will react if a weird behaviour
             (that you specify) is met. The days of you losing your entire server
-            are long gone.
-          </h2>
+          </motion.h2>
 
           <div className="grid items-end">
-            <div className="flex items-center justify-center mt-2 bg-blue-400 rounded-full p-0.5 w-fit px-5">
+            <motion.div
+              className="flex items-center justify-center mt-2 bg-blue-400 rounded-full p-0.5 w-fit px-5"
+              initial={{ y: 100, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 3 }}
+            >
               Bans/Kicks Monitoring
-            </div>
-            <div className="flex items-center justify-center mt-2 bg-blue-400 rounded-full p-0.5 w-fit px-5">
+            </motion.div>
+            <motion.div
+              className="flex items-center justify-center mt-2 bg-blue-400 rounded-full p-0.5 w-fit px-5"
+              initial={{ y: 150, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 3 }}
+            >
               Channel Creations/Deletions
-            </div>
-            <div className="flex items-center justify-center mt-2 bg-blue-400 rounded-full p-0.5 w-fit px-5">
+            </motion.div>
+            <motion.div
+              className="flex items-center justify-center mt-2 bg-blue-400 rounded-full p-0.5 w-fit px-5"
+              initial={{ y: 200, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 3 }}
+            >
               Role Creations/Deletions
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -142,18 +208,71 @@ export function Verification() {
     <div className="grid grid-cols-2 pt-14 pb-4 bg-[#1b1b1d] h-screen">
       <div className="flex items-center justify-center">
         <div className="w-1/2">
-          <h3 className="text-5xl font-bold">Verification</h3>
-          <h2>
+          <motion.h3
+            className="text-5xl font-bold my-4"
+            initial={{ y: 100 }}
+            whileInView={{ y: 0 }}
+            transition={{ duration: 3 }}
+          >
+            Verification
+          </motion.h3>
+          <motion.h2
+            initial={{ y: 200 }}
+            whileInView={{ y: 0 }}
+            transition={{ duration: 3 }}
+            className="my-4"
+          >
             You can use a 'Press to enter' type of verification or you can use
             Wick's custom captcha that members need to answer before gaining
             access to your server. Verification is super useful against raids
-            and attacks.
-          </h2>
+          </motion.h2>
         </div>
       </div>
       <div className="flex items-center justify-center">
         <Verify></Verify>
       </div>
+    </div>
+  );
+}
+
+export function MoreFeatures() {
+  const cards = Array.from({ length: 8 }).map((_, index) => (
+    <FeatureCard
+      key={index}
+      index={index + 1}
+      title="Backup System"
+      description="Take/Load backups and syncrhonize them efficiently with your server."
+    />
+  ));
+  const chunks = cards.reduce((acc, card, index) => {
+    const chunkIndex = Math.floor(index / 4);
+    if (!acc[chunkIndex]) {
+      acc[chunkIndex] = [];
+    }
+    acc[chunkIndex].push(card);
+    return acc;
+  }, [] as React.ReactNode[][]);
+
+  return (
+    <div className="pt-14 pb-4 bg-[#1b1b1d] h-screen">
+      <h3 className="text-3xl font-bold text-center my-4">More Features</h3>
+      {chunks.map((chunk, index) => (
+        <div key={index} className="flex justify-center my-2">
+          {chunk.map((card, index) => (
+            <div key={index} className="mx-2">
+              {card}
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export function Feedback() {
+  return (
+    <div className="pt-14 pb-4 bg-[#1b1b1d] h-screen flex justify-center items-center">
+      <FeedbackSlide></FeedbackSlide>
     </div>
   );
 }
@@ -172,16 +291,47 @@ function Image({ children, id }: { children: React.ReactNode; id: string }) {
       <div ref={ref} className="w-full h-full">
         {children}
       </div>
-      <motion.h2
+      {/* <motion.h2
         // Hide until scroll progress is measured
         initial={{ visibility: "hidden" }}
         animate={{ visibility: "visible" }}
         style={{ y }}
-      >{`#00${id}`}</motion.h2>
+      >
+        {id}
+      </motion.h2> */}
     </section>
   );
 }
-
+const pages = [
+  {
+    name: "",
+    component: <HeroSection></HeroSection>,
+  },
+  {
+    name: "",
+    component: <ServerModeration></ServerModeration>,
+  },
+  {
+    name: "Auto Moderation",
+    component: <AutoModeration></AutoModeration>,
+  },
+  {
+    name: "Raid Protection",
+    component: <NukeProtection></NukeProtection>,
+  },
+  {
+    name: "Verification",
+    component: <Verification></Verification>,
+  },
+  {
+    name: "More Features",
+    component: <MoreFeatures></MoreFeatures>,
+  },
+  {
+    name: "Feedback",
+    component: <Feedback></Feedback>,
+  },
+];
 export function Welcome() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -190,34 +340,39 @@ export function Welcome() {
     restDelta: 0.001,
   });
 
+  const [currentPage, setCurrentPage] = useState(0);
+  const [scope, animate] = useAnimate();
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    const newPage = Math.min(
+      pages.length - 1,
+      Math.floor(latest * pages.length)
+    );
+    setCurrentPage(newPage);
+  });
+
   return (
-    <div className="w-full h-screen">
+    <div className="w-full h-screen" ref={scope}>
       <Navbar />
-      {[
-        {
-          name: "Hero Section",
-          component: <HeroSection></HeroSection>,
-        },
-        {
-          name: "Server Moderation",
-          component: <ServerModeration></ServerModeration>,
-        },
-        {
-          name: "Auto Moderation",
-          component: <AutoModeration></AutoModeration>,
-        },
-        {
-          name: "Raid Protection",
-          component: <NukeProtection></NukeProtection>,
-        },
-        {
-          name: "Verification",
-          component: <Verification></Verification>,
-        },
-      ].map((image) => (
+      {pages.map((image) => (
         <Image key={image.name} id={image.name} children={image.component} />
       ))}
-      <motion.div className="progress" style={{ scaleX }} />
+      <div className="flex items-center justify-center">
+        {pages[currentPage]?.name && (
+          <motion.div
+            className="text-white text-2xl font-bold fixed bottom-0 text-center flex items-center justify-center w-full my-2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            {pages[currentPage]?.name || ""}
+          </motion.div>
+        )}
+
+        <motion.div
+          className="progress flex justify-center text-center text-white text-2xl font-bold"
+          style={{ scaleX }}
+        ></motion.div>
+      </div>
     </div>
   );
 }

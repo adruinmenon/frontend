@@ -9,13 +9,13 @@
   height: 100vh;
 }
 
-html {
+/* html {
   scroll-snap-type: y mandatory;
-}
+} */
 
 .img-container {
   height: 100vh;
-  scroll-snap-align: start;
+  /* scroll-snap-align: start; */
   position: relative;
   width: 100%;
 }
@@ -28,4 +28,5 @@ html {
   background: #8df0cc;
   bottom: 50px;
   transform: scaleX(0);
+  border-radius: calc(infinity * 1px);
 }

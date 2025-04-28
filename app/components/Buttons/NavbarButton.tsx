@@ -8,5 +8,5 @@ export const NavbarButton = ({
   children: React.ReactNode;
   className: string;
 }) => {
-  return <button className={className}>{children}</button>;
+  return <button className={className + " nav-button"}>{children}</button>;
 };

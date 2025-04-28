@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import { motion } from "motion/react";
 import Logo from "../components/Logo";
 
 export function ChatBox() {
-
   return (
-    <div className="bg-black rounded-lg p-10">
+    <motion.div className="bg-black rounded-lg p-10 overflow-y-auto overflow-x-hidden">
       {/* User chats */}
-      <div className="flex items-start justify-center mb-5">
+      <motion.div
+        className="flex items-start justify-start mb-5"
+        initial={{ x: 100 }}
+        whileInView={{ x: 0 }}
+        transition={{ duration: 3 }}
+      >
         <Avatar src="https://img.freepik.com/premium-photo/3d-avatar-cartoon-character_113255-103130.jpg"></Avatar>
         <div className="ml-2">
           {/* User Info */}
@@ -18,18 +22,27 @@ export function ChatBox() {
           <div className="flex items-start justify-center">
             <div className="flex flex-col gap-1 ml-2">
               {Array.from({ length: 4 }).map((_, index) => (
-                <div>
+                <motion.div
+                  initial={{ x: 200 }}
+                  whileInView={{ x: 0 }}
+                  transition={{ duration: 3 }}
+                >
                   <ChatMessage message="I'm spamming the same message!"></ChatMessage>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
           {/*  */}
         </div>
-      </div>
+      </motion.div>
 
       {/* Bot chats */}
-      <div className="flex items-start justify-center">
+      <motion.div
+        className="flex items-start justify-center"
+        initial={{ x: -100 }}
+        whileInView={{ x: 0 }}
+        transition={{ duration: 3 }}
+      >
         <div className="w-10 h-10 rounded-full bg-white">
           <Logo></Logo>
         </div>
@@ -57,8 +70,8 @@ export function ChatBox() {
           </div>
           {/*  */}
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
