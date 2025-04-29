@@ -12,7 +12,7 @@ export function FeatureCard({
   return (
     <motion.div
       className="w-64 bg-[#1d1f21] shadow-[0px_0px_15px_rgba(0,0,0,0.09)] p-9 space-y-3 relative overflow-hidden rounded-lg"
-      initial={{ y: 100, opacity: 0 }}
+      initial={{ y: -100, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       transition={{ duration: 3 }}
     >

@@ -14,7 +14,7 @@
 } */
 
 .img-container {
-  height: 100vh;
+  /* height: 100vh; */
   /* scroll-snap-align: start; */
   position: relative;
   width: 100%;
@@ -26,7 +26,8 @@
   right: 0;
   height: 5px;
   background: #8df0cc;
-  bottom: 50px;
+  /* bottom: 50px; */
+  top: 65px;
   transform: scaleX(0);
   border-radius: calc(infinity * 1px);
 }

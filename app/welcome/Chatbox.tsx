@@ -1,15 +1,19 @@
-import { motion } from "motion/react";
+import { motion, useInView } from "motion/react";
 import Logo from "../components/Logo";
+import { useRef } from "react";
 
 export function ChatBox() {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref);
   return (
-    <motion.div className="bg-black rounded-lg p-10 overflow-y-auto overflow-x-hidden">
+    <div className="bg-black rounded-lg p-10 overflow-y-hidden">
       {/* User chats */}
       <motion.div
         className="flex items-start justify-start mb-5"
-        initial={{ x: 100 }}
-        whileInView={{ x: 0 }}
+        initial={{ y: 100 }}
+        whileInView={{ y: 0 }}
         transition={{ duration: 3 }}
+        ref={ref}
       >
         <Avatar src="https://img.freepik.com/premium-photo/3d-avatar-cartoon-character_113255-103130.jpg"></Avatar>
         <div className="ml-2">
@@ -23,9 +27,10 @@ export function ChatBox() {
             <div className="flex flex-col gap-1 ml-2">
               {Array.from({ length: 4 }).map((_, index) => (
                 <motion.div
-                  initial={{ x: 200 }}
-                  whileInView={{ x: 0 }}
-                  transition={{ duration: 3 }}
+                  initial={{ y: 100 }}
+                  whileInView={{ y: 0 }}
+                  transition={{ duration: 3 + index * 0.5 }}
+                  key={index}
                 >
                   <ChatMessage message="I'm spamming the same message!"></ChatMessage>
                 </motion.div>
@@ -39,8 +44,12 @@ export function ChatBox() {
       {/* Bot chats */}
       <motion.div
         className="flex items-start justify-center"
-        initial={{ x: -100 }}
-        whileInView={{ x: 0 }}
+        initial={{ x: 0, y: 150 }}
+        animate={isInView ? "visible" : "hidden"}
+        variants={{
+          hidden: { x: 0, y: 200 },
+          visible: { x: 0, y: 0 },
+        }}
         transition={{ duration: 3 }}
       >
         <div className="w-10 h-10 rounded-full bg-white">
@@ -71,7 +80,7 @@ export function ChatBox() {
           {/*  */}
         </div>
       </motion.div>
-    </motion.div>
+    </div>
   );
 }
 

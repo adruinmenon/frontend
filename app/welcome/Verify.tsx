@@ -33,7 +33,12 @@ export function Verify() {
         <div className="my-2 h-0.5 bg-gray-400 w-full rounded-full"></div>
 
         {/* Channel Messages*/}
-        <div className="flex items-start justify-start my-2">
+        <motion.div
+          className="flex items-start justify-start my-2"
+          initial={{ y: 100, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 3 }}
+        >
           <div className="w-10 h-10 rounded-full bg-white">
             <Logo></Logo>
           </div>
@@ -98,7 +103,7 @@ export function Verify() {
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
       <motion.div
         className="absolute top-15 -left-25 bg-[#232323] flex items-center justify-center text-white text-center text-3xl p-3 rounded-lg"

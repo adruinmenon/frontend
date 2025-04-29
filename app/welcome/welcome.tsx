@@ -1,9 +1,4 @@
-import { HomePageButton } from "../components/Buttons";
-import { Navbar } from "../components/Navbar";
-import "./welcome.css";
-import { ChatBox } from "./Chatbox";
 import {
-  AnimatePresence,
   motion,
   MotionValue,
   useAnimate,
@@ -12,12 +7,18 @@ import {
   useSpring,
   useTransform,
 } from "motion/react";
-import { useEffect, useRef, useState } from "react";
-import React from "react";
-import { Verify } from "./Verify";
+import React, { useRef, useState } from "react";
+import { HomePageButton } from "../components/Buttons";
 import { FeatureCard } from "../components/Cards";
-import FeedbackSlide from "./FeedbackSlide";
 import { Counter } from "../components/Counter";
+import { Navbar } from "../components/Navbar";
+import { ChatBox } from "./Chatbox";
+import FeedbackSlide from "./FeedbackSlide";
+import { Verify } from "./Verify";
+import "./welcome.css";
+import WavingButton from "../components/Buttons/Invite";
+import { NukeProtectionLogs } from "./NukeProtection";
+import { Footer } from "../components/Footer";
 export function HeroSection() {
   return (
     <main className="pt-16 first h-screen w-full">
@@ -27,12 +28,22 @@ export function HeroSection() {
             Discord moderation and security that is always one step ahead
           </h1>
           <div className="flex items-center justify-center mt-10">
-            <div className="mx-3">
+            <motion.div
+              className="mx-3"
+              initial={{ y: 100, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 3 }}
+            >
               <HomePageButton>Invite Me</HomePageButton>
-            </div>
-            <div className="mx-3">
+            </motion.div>
+            <motion.div
+              className="mx-3"
+              initial={{ y: 100, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 3 }}
+            >
               <HomePageButton>Dashboard</HomePageButton>
-            </div>
+            </motion.div>
           </div>
         </div>
         <div className="w-1/2">
@@ -57,31 +68,73 @@ export function ServerModeration() {
       <div className="grid grid-cols-3">
         {[
           {
-            title: "Server Moderation",
+            title: (
+              <motion.div
+                className="flex items-center justify-center"
+                initial={{ y: 100, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 3 }}
+              >
+                Server Moderation
+              </motion.div>
+            ),
             description: (
-              <div className="flex items-center justify-center">
+              <motion.div
+                className="flex items-center justify-center"
+                initial={{ y: 100, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 3 }}
+              >
                 <Counter countTo={3000}></Counter>+ Servers
-              </div>
+              </motion.div>
             ),
           },
           {
-            title: "Raid Protection",
+            title: (
+              <motion.div
+                className="flex items-center justify-center"
+                initial={{ y: 100, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 3 }}
+              >
+                Raid Protection
+              </motion.div>
+            ),
             description: (
-              <div className="flex items-center justify-center">
+              <motion.div
+                className="flex items-center justify-center"
+                initial={{ y: 100, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 3 }}
+              >
                 <Counter countTo={1000}></Counter>+ Servers
-              </div>
+              </motion.div>
             ),
           },
           {
-            title: "Nuke Protection",
+            title: (
+              <motion.div
+                className="flex items-center justify-center"
+                initial={{ y: 100, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 3 }}
+              >
+                Nuke Protection
+              </motion.div>
+            ),
             description: (
-              <div className="flex items-center justify-center">
+              <motion.div
+                className="flex items-center justify-center"
+                initial={{ y: 100, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 3 }}
+              >
                 <Counter countTo={1000}></Counter>+ Servers
-              </div>
+              </motion.div>
             ),
           },
-        ].map((item) => (
-          <div key={item.title} className="mx-4 my-6">
+        ].map((item, index) => (
+          <div key={index} className="mx-4 my-6">
             <h3 className="text-5xl font-bold">{item.title}</h3>
             <p className="text-gray-500 text-2xl">{item.description}</p>
           </div>
@@ -116,16 +169,16 @@ export function AutoModeration() {
           <div>
             <motion.div
               className="flex items-center justify-center mt-2 bg-blue-400 rounded-full p-0.5 w-fit px-5"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ y: 100, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 3 }}
             >
               Advanced Anti Spam
             </motion.div>
             <motion.div
               className="flex items-center justify-center mt-2 bg-blue-400 rounded-full p-0.5 w-fit px-5"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ y: 150, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 3 }}
             >
               Advanced Anti Raid
@@ -144,12 +197,9 @@ export function NukeProtection() {
   return (
     <div className="grid grid-cols-2 pt-14 pb-4 bg-[#1b1b1d] h-screen">
       <div className="flex items-center justify-center">
-        <img
-          src="https://img.freepik.com/free-photo/car-with-full-moon-background_23-2151850155.jpg"
-          alt="Raid Protection"
-        />
+        <NukeProtectionLogs></NukeProtectionLogs>
       </div>
-      <div className="flex items-center justify-center overflow-x-hidden">
+      <div className="flex items-center justify-center overflow-hidden">
         <div>
           <motion.h3
             className="text-5xl font-bold my-4"
@@ -255,9 +305,9 @@ export function MoreFeatures() {
 
   return (
     <div className="pt-14 pb-4 bg-[#1b1b1d] h-screen">
-      <h3 className="text-3xl font-bold text-center my-4">More Features</h3>
+      <h3 className="text-3xl font-bold text-center my-10">More Features</h3>
       {chunks.map((chunk, index) => (
-        <div key={index} className="flex justify-center my-2">
+        <div key={index} className="flex justify-center my-5">
           {chunk.map((card, index) => (
             <div key={index} className="mx-2">
               {card}
@@ -277,6 +327,26 @@ export function Feedback() {
   );
 }
 
+export function InviteBlock() {
+  return (
+    <div className="pt-14 pb-4 bg-[#1b1b1d] flex justify-center items-center">
+      <div className=" flex flex-col justify-center items-center bg-[linear-gradient(300deg,#1d82ff,#ff1d50,#1d96ff)] rounded-lg px-14 py-12 text-white">
+        <h1 className="text-7xl font-bold wrap-normal text-left px-18 my-2">
+          Invite Wick
+        </h1>
+        <h2 className="text-md text-center my-2 max-w-lg">
+          An advanced fully customizable moderation bot at your service with a
+          lot of utilities and a dashboard to make your life easy.
+        </h2>
+        <div className="flex items-center justify-center my-10">
+          <WavingButton className="rounded-l-lg">Invite Me</WavingButton>
+          <WavingButton className="rounded-r-lg">Dashboard</WavingButton>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function useParallax(value: MotionValue<number>, distance: number) {
   return useTransform(value, [0, 1], [-distance, distance]);
 }
@@ -288,17 +358,9 @@ function Image({ children, id }: { children: React.ReactNode; id: string }) {
 
   return (
     <section className="img-container">
-      <div ref={ref} className="w-full h-full">
+      <div ref={ref} className="w-full">
         {children}
       </div>
-      {/* <motion.h2
-        // Hide until scroll progress is measured
-        initial={{ visibility: "hidden" }}
-        animate={{ visibility: "visible" }}
-        style={{ y }}
-      >
-        {id}
-      </motion.h2> */}
     </section>
   );
 }
@@ -331,6 +393,10 @@ const pages = [
     name: "Feedback",
     component: <Feedback></Feedback>,
   },
+  {
+    name: "Invite Block",
+    component: <InviteBlock></InviteBlock>,
+  },
 ];
 export function Welcome() {
   const { scrollYProgress } = useScroll();
@@ -352,13 +418,13 @@ export function Welcome() {
   });
 
   return (
-    <div className="w-full h-screen" ref={scope}>
+    <div className="w-full" ref={scope}>
       <Navbar />
       {pages.map((image) => (
         <Image key={image.name} id={image.name} children={image.component} />
       ))}
       <div className="flex items-center justify-center">
-        {pages[currentPage]?.name && (
+        {/* {pages[currentPage]?.name && (
           <motion.div
             className="text-white text-2xl font-bold fixed bottom-0 text-center flex items-center justify-center w-full my-2"
             initial={{ opacity: 0 }}
@@ -366,13 +432,14 @@ export function Welcome() {
           >
             {pages[currentPage]?.name || ""}
           </motion.div>
-        )}
+        )} */}
 
         <motion.div
           className="progress flex justify-center text-center text-white text-2xl font-bold"
           style={{ scaleX }}
         ></motion.div>
       </div>
+      <Footer></Footer>
     </div>
   );
 }
