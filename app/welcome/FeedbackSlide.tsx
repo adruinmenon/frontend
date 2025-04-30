@@ -1,5 +1,3 @@
-"use client";
-
 import { AnimatePresence, motion, usePresenceData, wrap } from "motion/react";
 import { forwardRef, useState, type SVGProps } from "react";
 
