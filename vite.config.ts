@@ -5,16 +5,19 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  worker: {
-    format: "es",
-  },
   plugins: [
-    cloudflare({ viteEnvironment: { name: "ssr" } }),
+    process.env.PLATFORM === "cloudflare" ? cloudflare({ viteEnvironment: { name: "ssr" } }) : undefined,
     tailwindcss(),
     reactRouter(),
     tsconfigPaths(),
   ],
-  optimizeDeps: {
-    exclude: ["virtual:react-router/server-build"],
+  build: {
+    target: "esnext",
   },
+  ...process.env.PLATFORM === "cloudflare" ? {
+    optimizeDeps: {
+      exclude: ["virtual:react-router/server-build"],
+    },
+  } : {},
+
 });

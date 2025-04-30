@@ -4,7 +4,8 @@
   "compatibility_date": "2025-04-04",
   "main": "./workers/app.ts",
   "vars": {
-    "NODE_ENV": "production"
+    "NODE_ENV": "production",
+    "PLATFORM": "cloudflare"
   },
   "compatibility_flags": ["nodejs_compat"]
 }

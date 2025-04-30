@@ -21,7 +21,7 @@ import { NukeProtectionLogs } from "./NukeProtection";
 import { Footer } from "../components/Footer";
 export function HeroSection() {
   return (
-    <main className="pt-16 first h-screen w-full">
+    <main className="pt-16 first h-screen w-full text-white">
       <div className="flex items-center justify-center pt-16 pb-4 w-full px-16">
         <div className="w-1/2">
           <h1 className="text-7xl font-bold wrap-normal text-left px-18">
@@ -418,7 +418,7 @@ export function Welcome() {
   });
 
   return (
-    <div className="w-full" ref={scope}>
+    <div className="w-full text-white" ref={scope}>
       <Navbar />
       {pages.map((image) => (
         <Image key={image.name} id={image.name} children={image.component} />
