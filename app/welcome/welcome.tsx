@@ -32,7 +32,7 @@ export function HeroSection() {
               className="mx-3"
               initial={{ y: 100, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 3 }}
+              transition={{ duration: 2 }}
             >
               <HomePageButton>Invite Me</HomePageButton>
             </motion.div>
@@ -40,7 +40,7 @@ export function HeroSection() {
               className="mx-3"
               initial={{ y: 100, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 3 }}
+              transition={{ duration: 2 }}
             >
               <HomePageButton>Dashboard</HomePageButton>
             </motion.div>
@@ -73,7 +73,7 @@ export function ServerModeration() {
                 className="flex items-center justify-center"
                 initial={{ y: 100, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 3 }}
+                transition={{ duration: 2 }}
               >
                 Server Moderation
               </motion.div>
@@ -83,7 +83,7 @@ export function ServerModeration() {
                 className="flex items-center justify-center"
                 initial={{ y: 100, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 3 }}
+                transition={{ duration: 2 }}
               >
                 <Counter countTo={3000}></Counter>+ Servers
               </motion.div>
@@ -95,7 +95,7 @@ export function ServerModeration() {
                 className="flex items-center justify-center"
                 initial={{ y: 100, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 3 }}
+                transition={{ duration: 2 }}
               >
                 Raid Protection
               </motion.div>
@@ -105,7 +105,7 @@ export function ServerModeration() {
                 className="flex items-center justify-center"
                 initial={{ y: 100, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 3 }}
+                transition={{ duration: 2 }}
               >
                 <Counter countTo={1000}></Counter>+ Servers
               </motion.div>
@@ -117,7 +117,7 @@ export function ServerModeration() {
                 className="flex items-center justify-center"
                 initial={{ y: 100, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 3 }}
+                transition={{ duration: 2 }}
               >
                 Nuke Protection
               </motion.div>
@@ -127,7 +127,7 @@ export function ServerModeration() {
                 className="flex items-center justify-center"
                 initial={{ y: 100, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 3 }}
+                transition={{ duration: 2 }}
               >
                 <Counter countTo={1000}></Counter>+ Servers
               </motion.div>
@@ -153,14 +153,14 @@ export function AutoModeration() {
             className="text-5xl font-bold my-4"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 3 }}
+            transition={{ duration: 2 }}
           >
             Auto Mod
           </motion.h3>
           <motion.h2
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 3 }}
+            transition={{ duration: 2 }}
             className="my-4"
           >
             Wick has a very unique auto mod that is based on a heat concept. The
@@ -171,7 +171,7 @@ export function AutoModeration() {
               className="flex items-center justify-center mt-2 bg-blue-400 rounded-full p-0.5 w-fit px-5"
               initial={{ y: 100, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 3 }}
+              transition={{ duration: 2 }}
             >
               Advanced Anti Spam
             </motion.div>
@@ -179,7 +179,7 @@ export function AutoModeration() {
               className="flex items-center justify-center mt-2 bg-blue-400 rounded-full p-0.5 w-fit px-5"
               initial={{ y: 150, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 3 }}
+              transition={{ duration: 2 }}
             >
               Advanced Anti Raid
             </motion.div>
@@ -205,14 +205,14 @@ export function NukeProtection() {
             className="text-5xl font-bold my-4"
             initial={{ x: 100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
-            transition={{ duration: 3 }}
+            transition={{ duration: 2 }}
           >
             Anti Nuke
           </motion.h3>
           <motion.h2
             initial={{ x: 200, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
-            transition={{ duration: 3 }}
+            transition={{ duration: 2 }}
             className="my-4"
           >
             Wick brought the concept of "Anti Nuke" to Discord years ago, and
@@ -226,7 +226,7 @@ export function NukeProtection() {
               className="flex items-center justify-center mt-2 bg-blue-400 rounded-full p-0.5 w-fit px-5"
               initial={{ y: 100, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 3 }}
+              transition={{ duration: 2 }}
             >
               Bans/Kicks Monitoring
             </motion.div>
@@ -234,7 +234,7 @@ export function NukeProtection() {
               className="flex items-center justify-center mt-2 bg-blue-400 rounded-full p-0.5 w-fit px-5"
               initial={{ y: 150, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 3 }}
+              transition={{ duration: 2 }}
             >
               Channel Creations/Deletions
             </motion.div>
@@ -242,7 +242,7 @@ export function NukeProtection() {
               className="flex items-center justify-center mt-2 bg-blue-400 rounded-full p-0.5 w-fit px-5"
               initial={{ y: 200, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 3 }}
+              transition={{ duration: 2 }}
             >
               Role Creations/Deletions
             </motion.div>
@@ -262,14 +262,14 @@ export function Verification() {
             className="text-5xl font-bold my-4"
             initial={{ y: 100 }}
             whileInView={{ y: 0 }}
-            transition={{ duration: 3 }}
+            transition={{ duration: 2 }}
           >
             Verification
           </motion.h3>
           <motion.h2
             initial={{ y: 200 }}
             whileInView={{ y: 0 }}
-            transition={{ duration: 3 }}
+            transition={{ duration: 2 }}
             className="my-4"
           >
             You can use a 'Press to enter' type of verification or you can use

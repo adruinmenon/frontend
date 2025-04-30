@@ -6,6 +6,7 @@
     ".react-router/types/**/*"
   ],
   "compilerOptions": {
+    "composite": true,
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "types": ["node", "vite/client"],
     "target": "ES2022",
@@ -19,9 +20,13 @@
     },
     "esModuleInterop": true,
     "verbatimModuleSyntax": true,
-    "noEmit": true,
+    // "noEmit": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true
-  }
+  },
+  "references": [
+    // { "path": "./tsconfig.node.json" },
+    { "path": "./tsconfig.cloudflare.json" }
+  ]
 }

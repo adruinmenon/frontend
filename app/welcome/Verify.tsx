@@ -37,7 +37,7 @@ export function Verify() {
           className="flex items-start justify-start my-2"
           initial={{ y: 100, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 3 }}
+          transition={{ duration: 2 }}
         >
           <div className="w-10 h-10 rounded-full bg-white">
             <Logo></Logo>
@@ -92,7 +92,7 @@ export function Verify() {
                   className="flex items-center justify-start ml-2 absolute -bottom-14 left-1/5 rounded-full text-yellow-500"
                   initial={{ x: 100, y: 100, opacity: 0 }}
                   whileInView={{ y: 0, x: 0, opacity: 1 }}
-                  transition={{ duration: 3 }}
+                  transition={{ duration: 2 }}
                 >
                   <MousePointerIcon width={100} height={100}></MousePointerIcon>
                 </motion.div>
@@ -109,7 +109,7 @@ export function Verify() {
         className="absolute top-15 -left-25 bg-[#232323] flex items-center justify-center text-white text-center text-3xl p-3 rounded-lg"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ duration: 3 }}
+        transition={{ duration: 2 }}
       >
         <div className="flex items-center justify-center">
           <div className="mr-2">
