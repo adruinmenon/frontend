@@ -29,7 +29,7 @@ export function ChatBox() {
                 <motion.div
                   initial={{ y: 100 }}
                   whileInView={{ y: 0 }}
-                  transition={{ duration: 2 + index * 0.5 }}
+                  transition={{ duration: 2 }}
                   key={index}
                 >
                   <ChatMessage message="I'm spamming the same message!"></ChatMessage>

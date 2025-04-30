@@ -9,9 +9,7 @@ export default defineConfig({
     format: "es",
   },
   plugins: [
-    process.env.NODE_ENV === "production"
-      ? cloudflare({ viteEnvironment: { name: "ssr" } })
-      : undefined,
+    cloudflare({ viteEnvironment: { name: "ssr" } }),
     tailwindcss(),
     reactRouter(),
     tsconfigPaths(),
