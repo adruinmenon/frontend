@@ -9,7 +9,7 @@ export default defineConfig({
     format: "es",
   },
   plugins: [
-    cloudflare({ viteEnvironment: { name: "ssr" } }),
+    // cloudflare({ viteEnvironment: { name: "ssr" } }),
     tailwindcss(),
     reactRouter(),
     tsconfigPaths(),
